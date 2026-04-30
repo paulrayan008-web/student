@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: student-backend
+    env: python
+    plan: free
+    rootDir: backend
+    buildCommand: |
+      pip install -r requirements.txt
+      apt-get update && apt-get install -y unixodbc-dev
+    startCommand: gunicorn app:app
